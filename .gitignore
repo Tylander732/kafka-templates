@@ -1,0 +1,9 @@
+# Java ignores
+java/.classpath
+java/.project
+java/.settings/*
+java/target/*
+
+# Go Ignores
+
+# Typescript Ignores
