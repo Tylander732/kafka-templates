@@ -3,6 +3,8 @@ java/.classpath
 java/.project
 java/.settings/*
 java/target/*
+java/logs/
+java/.factorypath
 
 # Go Ignores
 
