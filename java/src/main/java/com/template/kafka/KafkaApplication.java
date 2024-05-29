@@ -1,4 +1,4 @@
-package com.tylander.template.kafka;
+package com.template.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

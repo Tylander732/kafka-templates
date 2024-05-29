@@ -1,4 +1,4 @@
-package com.tylander.template.kafka.controller;
+package com.template.kafka.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
