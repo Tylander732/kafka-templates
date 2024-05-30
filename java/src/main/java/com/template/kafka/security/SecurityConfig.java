@@ -12,8 +12,6 @@ import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
-
 
 @EnableWebSecurity
 @Configuration
@@ -40,7 +38,7 @@ public class SecurityConfig {
 	}
 
 	@Bean
-	JwtDecoders jwtDecoders() {
+	JwtDecoder jwtDecoders() {
 
 		NimbusJwtDecoder jwtDecoder = JwtDecoders.fromOidcIssuerLocation(issuer);
 
