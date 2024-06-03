@@ -26,13 +26,17 @@ public class KafkaService {
 
 	public void runKafkaService(String configId, String requestBody, boolean sendWithKey) throws MissingConfigurationException, JsonProcessingException {
 		Event event = getEventData(configId, requestBody);
-		sendKafkaMessage(configId, event, sendWithKey);
+		processKafkaMessage(configId, event, sendWithKey);
 	}
 
-	private void sendKafkaMessage(String configId, Event event, boolean sendWithKey) throws MissingConfigurationException, JsonProcessingException {
+	private void processKafkaMessage(String configId, Event event, boolean sendWithKey) throws MissingConfigurationException, JsonProcessingException {
 		ConfigProperties.Config currentConfig = gatherAndVerifyConfig(configId);
 		String kafkaStringMessage = buildKafkaStringMessage(event);
-		eventService.handleEvent(kafkaStringMessage, currentConfig.getKafkaTopic());
+		if (!sendWithKey) {
+			eventService.handleEvent(kafkaStringMessage, currentConfig.getKafkaTopic());
+		} else {
+			eventService.handleEventWithKey(kafkaStringMessage, currentConfig.getKafkaTopic(), event.getMetadata().getTrackingId().toString());
+		}
 	}
 
 	private String buildKafkaStringMessage(Event event) throws JsonProcessingException {
