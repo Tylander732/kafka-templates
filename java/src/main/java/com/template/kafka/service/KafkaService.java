@@ -47,10 +47,12 @@ public class KafkaService {
 		ConfigProperties.Config currentConfig = configProperties.getConfigs().get(configId.toLowerCase());
 
 		if (currentConfig == null) {
+			// TODO: Log error here
 			throw new MissingConfigurationException("ConfigId: " + configId + " not setup in application.properties file.");
 		}
 
 		if (currentConfig.getKafkaTopic().isEmpty()) {
+			// TODO: Log error here
 			throw new MissingConfigurationException("Kafka Topic for: " + configId + " missing in application.properties file.");
 		}
 
