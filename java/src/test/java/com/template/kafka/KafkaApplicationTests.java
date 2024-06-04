@@ -1,4 +1,4 @@
-package com.tylander.template.kafka;
+package com.template.kafka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
